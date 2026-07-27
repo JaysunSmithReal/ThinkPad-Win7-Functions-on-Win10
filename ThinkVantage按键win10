@@ -1,0 +1,39 @@
+ThinkVantage 按键的历史沿革：
+
+ThinkVantage 按键传承自 IBM 时期 ThinkPad 上的 ThinkPad/Access IBM 按键
+通常在开机状态下按下该按键可打开机体设置或 IBM 技术支持程序
+如果正确使用原厂恢复盘完成过系统恢复，那么关机状态下按下该按键可以进入系统恢复功能（Rescue camp或Recovery）
+
+联想收购IBM旗下个人电脑业务之后开始进行“去IBM化”操作
+Access IBM 按键上的标识变为 ThinkVantage
+在使用 Windows XP/Vista 的机型中，开机状态下可启动 ThinkVantage Productivity Center，这是一个包含常用功能且能够被用户自定义的菜单。
+由于标志性的颜色，这个键也被俗称为蓝键。
+Productivity Center 菜单在安装时将兼容性设置为 Windows XP 或 Vista 后，即便是Windows 10 都仍然可用。
+
+Windows 7 后，ThinkVantage 按键用于启动 ThinkVantage Toolbox/Lenovo Solution Center 硬件综合诊断程序。
+
+Windows 8 后，各自分散的 ThinkVantage 应用逐渐被 Lenovo Settings 统一接管
+
+在230系列（X、W、T等）这一代传统设计的ThinkPad后，新模具设计的轻薄ThinkPad上ThinkVantage 按键也逐渐退出了历史舞台（关机恢复功能变为在开机出现 BIOS 画面后敲一下回车启动）。
+受此影响，在 Windows 10 下默认情况老机型的 ThinkVantage 按键没有任何对应功能
+
+
+以下是在Win0环境下重新映射ThinkVantage 按键的方法：
+
+操作前请确认已安装 Hotkey Features Integration（热键驱动程序 ）,确认方法是当麦克风静音时指示灯是点亮状态
+
+一、以管理员权限打开注册表编辑器
+
+二、定位到 HKEY_LOCAL_MACHINE\SOFTWARE\Lenovo\ShortcutKey\AppLaunch
+
+三、右键菜单>新建>项，命名为： Ex_17
+
+四、选中 Ex_17，在右侧新建 DWORD 值，命名为 AppType 并赋值 10001（十六进制） #Win10 21H2+等高版本系统，请将EX_17下的AppType键值设置为1
+
+五、在 Ex_17 下右键菜单>新建>项，命名为： Desktop
+
+六、在 Desktop 下转向右侧，创建字符串 File 和 Parameters，File 中填写要启动的应用/要打开的文件所在路径，Parameters 留空
+ 
+重启电脑，按下 ThinkVantage 蓝色按键即可启动在上一步指定的应用或文件
+
+
