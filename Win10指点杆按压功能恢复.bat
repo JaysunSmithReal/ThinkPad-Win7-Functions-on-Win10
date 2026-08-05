@@ -13,14 +13,6 @@ echo 正在修改 Synaptics 触控板 UIStyle...
 echo ================================
 echo.
 
-:: 检查注册表路径是否存在
-reg query "HKLM\SOFTWARE\Synaptics\SynTPCpl" >nul 2>&1
-if %errorlevel% NEQ 0 (
-    echo ❌ 未找到注册表路径：HKLM\SOFTWARE\Synaptics\SynTPCpl
-    echo 请确认你的设备是否使用 Synaptics 触控板驱动。
-    pause
-    exit /b
-)
 
 :: 写入 UIStyle = 237c
 reg add "HKLM\SOFTWARE\Synaptics\SynTPCpl" /v UIStyle /t REG_SZ /d 237c /f
